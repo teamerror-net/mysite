@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title></title>
+        <style>
+            table {
+              font-family: arial, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            
+            td, th {
+              border: 1px solid #dddddd;
+              text-align: left;
+              padding: 8px;
+            }
+            
+            tr:nth-child(even) {
+              background-color: #dddddd;
+            }
+            </style>
+    </head>
+    <body>
+       <div>
+           <table>
+               <tr>
+                   <th>Username</th>
+                   <th>Joining Date</th>
+                   <th><div style="width: 10px; height: 10px; border-radius: 50%; background-color: green;"></div></th>
+                   <th><div style="width: 10px; height: 10px; border-radius: 50%; background-color: red;"></div></th>
+                   <th><a href="{% url 'signout' %}" class="btn btn-warning">Logout</a></th>
+               </tr>
+               {% for x in user %}
+               <tr>
+                   <td>{{x.username}}</td>
+                   <td>{{x.account_open}}_{{x.account_open_time}}</td>
+                   <td>{{x.present}}</td>
+                   <td>{{x.absent}}</td>
+                   <td></td>
+               </tr>
+               {% endfor %}
+           </table>
+       </div>
+    </body>
+
+</html>
+
